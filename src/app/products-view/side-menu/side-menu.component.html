@@ -1,11 +1,6 @@
 <div class="side-nav">
-  <button
-    *ngFor="let pie of pies$ | async"
-    class="image-button"
-  >
-    <img
-      [src]="pie.thumb"
-      alt="image of person sticking a fork in a piece of pie"
-    />
+  <button *ngFor="let pie of pies$ | async" class="image-button" [routerLink]="[customize ? customizeLink : detailLink]"
+    [queryParams]="{productId: pie.id}" routerLinkActive="active-link" queryParamsHandling="merge">
+    <img [src]="pie.thumb" [alt]="pie.title" />
   </button>
 </div>
